@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Index of {{ path }}</title>
+</head>
+<body>
+  <h1>Index of {{ path }}</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>mode</th>
+        <th>name</th>
+        <th>last modified</th>
+        <th>size</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for file in files %}
+      <tr>
+        <td>{{ file.mode }}</td>
+        <td><a href="{{ file.name }}">{{ file.name }}</a></td>
+        <td>{{ file.last_modified }}</td>
+        <td>{{ file.size }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>
