@@ -1,4 +1,4 @@
-from flask import Flask, render_template, abort
+from flask import Flask, render_template, abort, send_from_directory
 import os
 import time
 
@@ -39,11 +39,10 @@ def index():
 
 @app.route('/<path:path>')
 def catch_all(path):
-    print(STATIC_DIR + '/' + path)
+    if os.path.isfile(STATIC_DIR + '/' + path):
+        return send_from_directory(os.path.join('.', STATIC_DIR), path)
     if not os.path.isdir(STATIC_DIR + '/' + path):
         abort(404)
-    if os.path.isfile(STATIC_DIR + '/' + path):
-        app.send_static_file(path)
     files = get_files(path)
     return render_template('index.html',
         path='/' + path,
