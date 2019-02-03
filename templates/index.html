@@ -3,9 +3,28 @@
 <head>
   <meta charset="utf-8">
   <title>Index of {{ path }}</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+    table {
+      width: 80%;
+      margin: 0 auto;
+    }
+    td, footer {
+      text-align: center;
+    }
+    footer {
+      border-top: 1px solid black;
+    }
+  </style>
 </head>
 <body>
-  <h1>Index of {{ path }}</h1>
+  <header>
+    <h1>Index of {{ path }}</h1>
+  </header>
   <table>
     <thead>
       <tr>
@@ -26,5 +45,8 @@
       {% endfor %}
     </tbody>
   </table>
+  <footer>
+    <p>Powered by <a href="https://github.com/hardboiled65/lpm-archive">lpm-archive</a> 0.0.1</p>
+  </footer>
 </body>
 </html>
