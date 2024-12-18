@@ -1,4 +1,4 @@
-FROM python:3.7.2
+FROM python:3.11.11
 
 # RUN pip install uwsgi
 
